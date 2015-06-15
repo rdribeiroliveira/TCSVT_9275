@@ -451,7 +451,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-This work presents a new hardware reconfiguration approach, which is capable of updating hardware modules, based on the digital TV (DTV) signal content. Such a scheme allows several synthesized hardware cores (bit-streams) to be signaled and simply broadcast, through an open DTV signal. Service information content, specifically designed for identifying and describing characteristics of the multiplexed hardware bit-streams, is added to the transmitted signal. The receiver framework, in turn, checks whether those characteristics correspond to the embedded reconfigurable devices (e.g., field programmable gate array - FPGA) and, if a match is found, it reassemblies the related bit-streams and reconfigures the FPGA device. This approach can be used in several designs, regarding intelligent reconfigurable devices, and has the potential to minimize device costs and provide a better hardware reuse.
+This work presents a new hardware reconfiguration approach, which is capable of updating hardware modules, based on the digital TV (DTV) signal content. Such a scheme allows several synthesized hardware cores (bit-streams) to be signaled and simply broadcast, through an open DTV signal. Service information content, specifically designed for identifying and describing characteristics of the multiplexed hardware bit-streams, is added to the transmitted signal. The receiver framework, in turn, checks whether those characteristics correspond to the embedded reconfigurable devices (e.g., field programmable gate array - FPGA) and, if a match is found, it \textcolor{blue}{reassembles} the related bit-streams and reconfigures the FPGA device. This approach can be used in several designs, regarding intelligent reconfigurable devices, and has the potential to minimize device costs and provide a better hardware reuse.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -500,7 +500,7 @@ Recently, the international telecommunications union (ITU) introduced the high e
 
 Given what was presented, one may notice that AVC/H.264-based systems are unable to incorporate the benefits of HEVC/H.265 immediately, due to hardware legacy. However, such flexibility could be achieved if the DTV receiver architecture was capable of performing demanding tasks through reconfigurable devices ({\em e.g.}, field programmable gate array - FPGA), instead of ASICs.
 
-Currently, the semiconductor industry and open core communities have boosted the use of FPGA. The latter even provide hardware-description source codes ({\em e.g.}, VHSIC hardware description language - VHDL~\cite{ref5} and Verilog~\cite{ref6}), for a number of applications ({\em e.g.}, crypto cores, DSP cores and encoder/decoder cores), which are available for downloading and using in project solutions~\cite{ref7}.
+Currently, the semiconductor industry and open core communities have boosted the use of FPGA. The latter even provide hardware-description source codes ({\em e.g.}, VHSIC hardware description language - VHDL~\cite{ref5} and Verilog~\cite{ref6}), for a number of applications ({\em e.g.}, crypto cores, DSP cores and encoder/decoder cores), which are available for download and immediate use in project solutions~\cite{ref7}.
 
 Furthermore, current FPGA technologies are already a good option, when compared to ASICs, due to price equalization between them, which is provided by the amortization of non-recurring engineering (NRE) costs among customers, for each integrated circuit (IC) family~\cite{ref8},~\cite{ref9}. This reinforces the development of hardware architectures and critical tasks using reconfigurable devices, in embedded systems. 
 
@@ -511,7 +511,7 @@ The observations presented in the last paragraphs are the inspiration for the pr
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/Fig1}
+\includegraphics[width=2.5in]{images/Fig1.eps}
 \caption{The FPGA bit-stream broadcast, in a DTV environment.}
 \label{figure:fig1}
 \end{figure}
@@ -529,26 +529,33 @@ The remaining of this work is organized as follows. Section \ref{related-work} p
 \section{Related Work}\label{related-work}
 
 Recent studies, on similar topics, present some related work based on intelligent hardware architectures, with hardware reconfiguration, as the core technology for building more compact and efficient systems.
-Indeed, architectures with hardware resource management present a new trend in embedded systems. In these approaches, pre-synthesized hardware unit functions are able to execute run-time reconfiguration of FPGA cores, according to the user's interaction, such as described by Lin {\em et al}~\cite{ref13}.
+Indeed, architectures with hardware resource management present a new trend in embedded systems. In these approaches, pre-synthesized hardware unit functions are able to execute run-time reconfiguration of FPGA cores, according to the user's interaction, such as described by Lin {\em et al}~\cite{ref13}. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
-Intelligent embedded systems can make use of the partial dynamic hardware, for run-time reconfiguration. Such a feature, which is similar to a microprocessor multi-task system, allows a multiplex of distinct hardware modules to run at the same time. Thus, functional pre-synthesized hardware blocks, {\em i.e.}, logical blocks, can be reconfigured or not, according to system needs~\cite{ref14}. In that case, the use of partial dynamic reconfiguration causes a considerable reduction in power consumption, besides a significant decrease in device costs.
+Intelligent embedded systems can make use of the partial dynamic hardware, for run-time reconfiguration. Such a feature, which is similar to a microprocessor multi-task system, allows a multiplex of distinct hardware modules to run at the same time. Thus, functional pre-synthesized hardware blocks, {\em i.e.}, logical blocks, can be reconfigured or not, according to system needs~\cite{ref14}. In that case, the use of partial dynamic reconfiguration causes a considerable reduction in power consumption, besides a significant decrease in device costs. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
-The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion procedure of signal processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures.
+The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
-A complete multi-core reconfigurable platform, combining processors with some reconfigurable logic, can provide a rich and flexible environment for application programmers, as proposed by Serres {\em et al}~\cite{ref16}.
+A complete multi-core reconfigurable platform, combining processors with some reconfigurable logic, can provide a rich and flexible environment for application programmers, as proposed by Serres {\em et al}~\cite{ref16}. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
-The related works are based on pre-synthesized cores, which need to be present on their embedded file system. Those cores are used according to system demands, or even due to user interaction. However, the proposed approach is based on broadcast networks, through which pre-synthesized cores for updating several devices can be sent. Therefore, several core modules, from different manufacturers, can be delivered, at the same time, for a large amount of receivers.
+\textcolor{red}{rodrigo, encontre pelo menos mais um trabalho e coloque aqui. Tente achar algo híbrido entre software e hardware.}
+
+The presented related works are based on pre-synthesized cores, which need to be present on their embedded file systems. Those cores are used according to system demands, or even due to user interaction. However, the proposed approach is based on broadcast networks, through which pre-synthesized cores, for updating several devices, can be sent. Therefore, several core modules, from different manufacturers, can be delivered at the same time, for a large amount of receivers.
+
+\textcolor{blue}{Hardware reconfiguration techniques can be used in a wide variety of applications, in such a way that a specific feature can be updated or even integrated into a given platform, as seen above. Regarding video decoding, a similar result may be achieved with the reconfigurable video coding (RVC) framework \cite{ref34,ref40}, which provides coding specifications based on library components, instead of monolithic solutions. In summary, a coding problem can be tackled by selecting components of a standard coding-algorithm library, in such a way that a specific solution may be assembled. Such an approach has the potential to even provide more flexibility on the choice of the coding-tool subset (profile) that already exists in current standards, given that it already presents some drawbacks, due to the lack of optimal solutions for many specific cases. The decoder model is provided through a specific language called Cal, which employs notions of actor programming and dataflow \cite{ref34,ref37}. There are also synthesis approaches \cite{ref37,ref35,ref36,ref39,ref41}, which are able to covert high-level descriptions to C or HDL code. Besides, reconfigurable/multi-standard platforms \cite{ref38} can be developed, with the potential to reduce the hardware legacy problem.}
+
+\textcolor{blue}{Based on what was presented, the relation between the proposed methodology and RVC can be analyzed in two different ways. First, with an initial library of video coding-algorithms, an arbitrary combination of standardized basic coding algorithms can be obtained \cite{ref34}, which would provide optimal configurations for specific scenarios and indeed achieve the same goal of the proposed solution. The main difference is that while RVC relies on a reconfiguration procedure regarding existing tools, the hardware reconfiguration would need a new hardware description to be transmitted; however, the latter has the potential to use less systems resources ({\it e.g.} memory, gates, etc.), when compared to RVC. Besides, receivers must be updated before receiving content coded with new algorithms, wile RVC bit-streams carry all necessary information for decoding. Second, even this initial library will needed to be updated, with new coding tools for enhanced performance or different coding paradigms. Regarding that, one may notice that the RVC framework and the proposed approach become complementary solutions, given that new modules could be generated and then transmitted and updated through the framework presented here. It is worth noticing that the mentioned synthesis tools \cite{ref35} could be used for generating the target decoder, based on the Cal description, and the resulting HDL module would then be transmitted and used to update all available decoders, in a similar way as in direct download applications \cite{ref34}.}
+
 
 \section{Hardware-Data Broadcast Through The Digital TV Signal}\label{hardware-data}
 
 The DTV TS consists of packets with audio, video, and data, which are $188$ bytes in length. The packet is the basic TS data unit and is composed of a sync-byte field, whose value is 0x47, followed by three $1$-bit fields (transport error indicator, payload unit start indicator, and transport priority) and an identification ($13$-bit), known as packet identifier (PID)~\cite{ref17}, among others. The PID provides a means of differentiating the payload content of each transport unit (packet), in a TS; if a PID is allocated and reported to a receiver (through a table), this means that a given packet carries video, audio, or other data, according to what was informed. Thus, the proprietary broadcast content is identified by its respective PID values.
 
-Fig.~\ref{figure:fig2} shows a transport stream with different packets, which consist of video, audio, program association table (PAT), and hardware payload (PID 0x77). This transport stream slice shows that packets with the same PID, that is, carrying parts of the same information, are spaced over time. The receiver de-multiplexer then needs to filter a transport stream, using the corresponding PIDs, for accessing its payload content.
+Fig.~\ref{figure:fig2} shows a transport stream with different packets, which consist of video, audio, program association table (PAT), and hardware payload (PID 0x77). This transport stream slice shows that packets with the same PID, that is, carrying parts of the same information, are spaced over time. The receiver demultiplexer then needs to filter a transport stream, using the corresponding PIDs, for accessing its payload content.
 
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.5in]{figures/Fig2}
+\includegraphics[width=3.5in]{images/Fig2.eps}
 \caption{Transport stream packet structure used to carry different data types, which includes hardware reconfiguration data.}
 \label{figure:fig2}
 \end{figure}
@@ -570,12 +577,12 @@ An important feature of DTV standards is the data broadcasting capability. The b
 
 DTV receivers ({\em e.g.}, Set-top Boxes) are used to demodulate and decode the HDTV broadcast signal, in such a way that the transmitted TS, carrying audio, video, and data packets (see section \ref{hardware-data}) is recovered. Normally, DTV standards specify reference receiver architectures, in order to suggest design implementations to manufacturers~\cite{ref27}. In fact, commercially available receivers normally present similar composition and provide a set of device drivers with exemplary applications. These data are taken as a reference to access and manipulate hardware devices. 
 
-Fig.~\ref{figure:fig3} shows the basic components present in receiver architectures. The air interface ({\em e.g.}, front-end, also called demodulator) device is responsible for demodulating any available DTV signal, in the receiver range. It recovers the TS stream flow output by the multiplexer device, which was sent at the transmitter end. The DEMUX component uses the front-end (air interface) output (a transport stream flow), splits packets related to a given PID identifier (see section \ref{hardware-data}), and outputs them in continuous separate flows. Later on, those flows are forwarded to their respective decoders (e.g., H.$264$ video decoder), which in turn decode the content ({\em e.g.}, audio or video packets), in a continuous decoding process. The other flows, present in the transport stream, are split by DEMUX, according to a given PID provided by the resident application ({\em e.g.}, filter software parser) control.
+Fig.~\ref{figure:fig3} shows the basic components present in receiver architectures. The air interface ({\em e.g.}, front-end, also called demodulator) device is responsible for demodulating any available DTV signal, in the receiver range. It recovers the TS stream flow output by the multiplexer device, which was sent at the transmitter end. The DEMUX component uses the front-end (air interface) output (a transport stream flow), splits packets related to a given PID identifier (see section \ref{hardware-data}), and outputs them in continuous separate flows. Later on, those flows are forwarded to their respective decoders ({\it e.g.}, H.$264$ video decoder), which in turn decode the content ({\em e.g.}, audio or video packets), in a continuous decoding process. \textcolor{blue}{Finally, the information output by the video decoder is passed to its respective digital video encoder (DENC) module, which converts digital baseband video data into analog signals ({\it e.g.}, Y/C, composite video broadcast signal, etc.), in order to provide video interface with other equipment ({\it e.g.}, television sets, personal video recorders, etc.)}. The other flows, present in the transport stream, are split by DEMUX, according to a given PID provided by the resident application ({\em e.g.}, filter software parser) control.
 
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/Fig3}
+\includegraphics[width=2.5in]{images/Fig3.eps}
 \caption{Receiver architecture composed of air interface (Front End), demultiplexer, H.264 decoder, and memories.}
 \label{figure:fig3}
 \end{figure}
@@ -598,7 +605,7 @@ The standalone FPGA programmer system was based on an open-source JTAG reference
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/Fig4}
+\includegraphics[width=2.5in]{images/Fig4.eps}
 \caption{The DTV Receiver (host) connected to a reference FPGA board (target), through a USB/JTAG programmer cable.}
 \label{figure:fig4}
 \end{figure}
@@ -620,7 +627,7 @@ Beyond what was tackled, other criteria for choosing the most suitable data broa
 \renewcommand{\arraystretch}{1.18}
 \begin{center} {\small
 \caption{Comparison Regarding Data Broadcasting Methods}
-\label{table-one}
+\label{table:table-one}
 \centering
 \begin{tabular}{| >{\centering}m{1.2cm} >{\centering}m{1cm} >{\centering}m{0.9cm} >{\centering}m{1cm} >{\centering}m{0.6cm} c|}
 \hline\hline
@@ -651,7 +658,7 @@ Thus, the hardware bit-stream is divided into sections of $4092$ bytes in length
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3in]{figures/Fig5}
+\includegraphics[width=3in]{images/Fig5.eps}
 \caption{The FPGA synthesis stream, divided into sequenced private sections of variable size, which are then organized into TS packets.}
 \label{figure:fig5}
 \end{figure}
@@ -669,7 +676,7 @@ Other information, about the transmitted hardware core, must also be included an
 \renewcommand{\arraystretch}{1}
 \begin{center} {\small
 \caption{The Update Information Table - UIT}
-\label{table-two}
+\label{table:table-two}
 \centering
 \begin{tabular}{|>{\flushleft}m{3.8cm} >{\centering}m{1.3cm} >{\centering}m{1.2cm} c |}
 \hline\hline
@@ -718,7 +725,7 @@ The $fpga\_core\_number$ field identifies the number of hardware cores being cur
 \renewcommand{\arraystretch}{1}
 \begin{center} {\small
 \caption{The update\_hw\_identifier Field Syntax}
-\label{table-three}
+\label{table:table-three}
 \centering
 \begin{tabular}{|>{\flushleft}m{3.8cm} >{\centering}m{1.3cm} >{\centering}m{1.2cm} c |}
 \hline\hline
@@ -744,7 +751,7 @@ TABLE~\ref{table:table-four} presents the syntax of the $fpga\_core\_module\_nam
 \renewcommand{\arraystretch}{1}
 \begin{center} {\small
 \caption{The FPGA\_core\_module\_name Descriptor Syntax}
-\label{table-four}
+\label{table:table-four}
 \centering
 \begin{tabular}{|>{\flushleft}m{3.8cm} >{\centering}m{1.3cm} >{\centering}m{1.2cm} c |}
 \hline\hline
@@ -772,7 +779,7 @@ The descriptor\_length field identifies the size of the content located inside t
 \renewcommand{\arraystretch}{1}
 \begin{center} {\small
 \caption{The FPGA\_core\_device\_info Descriptor Syntax}
-\label{table-five}
+\label{table:table-five}
 \centering
 \begin{tabular}{|>{\flushleft}m{3.8cm} >{\centering}m{1.3cm} >{\centering}m{1.2cm} c |}
 \hline\hline
@@ -798,7 +805,7 @@ The receiver system uses the presented information to check the characteristics 
 \renewcommand{\arraystretch}{1}
 \begin{center} {\small
 \caption{The FPGA\_section\_identifier Descriptor Syntax}
-\label{table-six}
+\label{table:table-six}
 \centering
 \begin{tabular}{|>{\flushleft}m{3.8cm} >{\centering}m{1.3cm} >{\centering}m{1.2cm} c |}
 \hline\hline
@@ -826,7 +833,7 @@ The DTV-receiver resident system is configured to filter the transmitted content
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/Fig6}
+\includegraphics[width=2.5in]{images/Fig6.eps}
 \caption{Steps to check the UIT content and find a broadcast core hardware suitable for the receiver, in order to retrieve the correct PID for filtering.}
 \label{figure:fig6}
 \end{figure}
@@ -839,7 +846,7 @@ The system keeps this iterative process until the last section is received, in o
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/Fig7}
+\includegraphics[width=2.5in]{images/Fig7.eps}
 \caption{Steps involved in the process of obtaining the broadcast hardware core stream, which includes verification of each private section, downloading and content reassembling.}
 \label{figure:fig7}
 \end{figure}
@@ -849,9 +856,17 @@ The system keeps this iterative process until the last section is received, in o
 
 The FPGA reconfiguration is the last step of the entire proposed scheme. The main idea is to exercise the complete chain, that is, from the beginning of the process (core multiplexing) to its end (FPGA reconfiguration). At this point, the receiver has already checked if the core characteristics fit the FPGA model (see section \ref{core-data}), used at the receiver, and has finished the system core reassembling (obtained broadcasted SVF file). Now, in this step, the remounted hardware core stream reaches a receiver reconfigurable target device, through a JTAG mode, as presented in section \ref{data-multiplexing}. 
 
+\textcolor{red}{Rodrigo, aqui voce criarah uma nova subsecao de discussao, onde voce falarah que usando jtag, svf e as tabelas, onde informacoes sobre o FPGA sao disponibilizadas (fabricante, etc,.), a metodologia não fica limitada a um fabricante especifico... (eh isso, nao eh?)... voce também reforçará que se o feixe de bits nao for compativel, nada acontecerah...Aqui fale do quanto de informacao, alem da descricao de hardware, foi necessario para o processo de reconfiguracao... por exemplo, comandos de jtag... fale quanta informacao eh necessario alem da descricao propriamente dita... fale tambem que a metodologia proposta necessita de mudancas no padrao, entretanto, isso viabilizaria um esquema consistente e bem formatado para a tualização... deixe tudo em azul}
+
+\textcolor{red}{O texto abaixo ja faz parte da explicacao da mudanca na norma}
+
+\textcolor{blue}{One may notice that the proposed methodology is based on an extension of the current service information (SI) standards \textcolor{red}{aqui vai uma ref de SI}, without any modification regarding current structures, since it uses a new table (UIT) and associated descriptors. Although that may sound complicated, its implementation is transparent and can even be done without a formal modification of the related standards, as a proprietary framework. Anyway, the present approach addresses the complete update chain and provides a elegant and complete solution, which is still more feasible and simpler than isolated proprietary solutions or on-site maintenace.}
+
 \subsection{Reconfiguration-Process Test Results}\label{reconfig-process}
 
 As Proof of Concept (PoC), some HDL source code examples were synthesized, which aim at exciting the entire scheme. Fourth VHDL/Verilog source code examples are used, which are synthesized for a reference FPGA and then tested and validated, by means of an EDA tool.
+
+\textcolor{red}{Rodrigo, aqui voce coloca um resumo do seu ambiente de testes, com placa de FPGA, frequencia da placa, computador, etc. coloque tudo que voce usou e deixe em azul}
 
 The validation is based on typical examples, in order to check if the FPGA is configured properly and the scheme works in a DTV system. The first pre-synthesized example converted to an SVF file (see section \ref{hardware-data}) is a simple binary-coded decimal (BCD) light emitting diode (LED) counter (Ex01.svf). The second one is a BCD to $7$-Seg decoder (Ex02.svf). The third is an example in which a text message is written on a 16x2 liquid crystal display (LCD) device (Ex03.svf). Finally, the fourth and last one is a $7$ segments counter (Ex04.svf).
 
@@ -862,8 +877,8 @@ The first experiments were performed to establish the better section repetition 
 \begin{table}[ht]
 \renewcommand{\arraystretch}{1.18}
 \begin{center} {\small
-\caption{Results Obtained with the Proposed Reconfiguration Scheme}
-\label{table-seven}
+\caption{\textcolor{blue}{Remounting time values obtained for the first pre-synthesized example, using different repetition rates.}}
+\label{table:table-seven}
 \centering
 \begin{tabular}{|c >{\centering}m{2cm} c|}
 \hline\hline
@@ -881,7 +896,7 @@ Ex01\_2000ms.ts	&	2000 ms				 & 14,84 s\\
 \end{center}
 \end{table}
 
-According with TABLE~\ref{table:table-seven}, the results using rate of $500$ms (Ex01\_$500$ms.ts), presented the lowest performance for remounting process using private sections. Using this rate, there is a greater discard of sections by the remounting system when compared with lower rates. The discard happens, when the remounting system captures a smaller number of sections, in each repetition cycle. In the $750$ms repetition rate (Ex01\_$750$ms.ts) there was an improvement in the remounting performance reducing discard of sections when compared with a $500$ms repetition rate. However, the rates between $1000$ms and $1500$ms, had the best average performance during remounting hardware core. The above rates this range have similar values, but already present a tendency to increase the remounting time.
+According to TABLE~\ref{table:table-seven}, the results using a rate of $500$ms (Ex01\_$500$ms.ts) presented the lowest performance, during the remounting process with private sections. Using this specific rate, there is a greater discard of sections by the remounting system, when compared with lower rates. The discard happens, when the remounting system captures a smaller number of sections, in each repetition cycle. In the $750$ms repetition rate (Ex01\_$750$ms.ts) there was an improvement in the remounting performance reducing discard of sections when compared with a $500$ms repetition rate. \textcolor{blue}{However, rates between $1000$ms and $1500$ms presented the best average performance during the hardware core remounting procedure. It is worth noticing that the mentioned rates provided similar remounting times, but with a clear trend towards an increase in this merit figure.}
 
 The other experiments were based in a private section bit-rate of $1000$ms; the UIT bit-rate is also $1000$ms. In order to perform the TS broadcasting task, a USB $2.0$-based multi-standard modulator is used.
 
@@ -890,8 +905,8 @@ Some results are generated for validating the correct operation of the entire sc
 \begin{table}[ht]
 \renewcommand{\arraystretch}{1.18}
 \begin{center} {\small
-\caption{Results Obtained with the Proposed Reconfiguration Scheme}
-\label{table-eight}
+\caption{\textcolor{blue}{Remounting and reconfiguration time values obtained for all the employed pre-synthesized examples, using a $1000$ms repetition rate}}
+\label{table:table-eight}
 \centering
 \begin{tabular}{|c c c c c|}
 \hline\hline
@@ -1012,7 +1027,11 @@ This work presented a new approach for hardware reconfiguration, which is intend
 
 The results obtained with the pre-synthesized core experiments show that the system is able to reconfigure distinct core modules, in a DTV system. The experiments also show that this reconfiguration scheme can work in parallel with other DTV tasks. Indeed, the obtained remounting time is satisfactory for an embedded system with low processing power, and the reconfiguration time can be improved if, the FPGA is integrated on the receiver board. 
 
+\textcolor{blue}{Tests using media decoders were not performed, but there is no restriction regarding that, since the proposed methodology is able to update any hardware module, as long as the structure described in section \ref{hardware-reconfig} is followed. Besides, the chosen examples are simple enough, in order allow fast implementation and easy multiplexing, and complex enough, in such a way that the complete hardware update chain is used, with the goal to reveal its complexity and also show its validity.}
+
 Critical tasks normally performed by an ASIC device, such as H.$264$ video decoding and crypto tasks, could be designed in FPGA, based on the present scheme. It would enable the incorporation of technological advances, such as new video compression schemes, which would create a flexible DTV network. Furthermore, other devices that use transport streams could also make use of the proposed scheme, in order to design intelligent architectures and flexible low-cost devices.
+
+\textcolor{red}{Aqui comente novamente sobre o overhead da metodologia e fale que não testamos decodificadores de vídeo}
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
@@ -1074,71 +1093,128 @@ Critical tasks normally performed by an ASIC device, such as H.$264$ video decod
 \begin{thebibliography}{1}
 
 \bibitem{ref1}
-	M. Yoshida, M. Takahashi, H. Mizosoe, T. Nakamura, and Y. Yatabe,``Highly Efficient H.264/AVC Codec Technology for High Definition Consumer Applications,'' in \emph{Proc. IEEE International Conference on Consumer Electronics}, Las Vegas, USA, pp. 1-2, Jan. 2008.
+D. Yoshida, M. Takahashi, H. Mizosoe, T. Nakamura, and Y. Yatabe,``Highly efficient H.264/AVC codec technology for high definition consumer applications,'' in \emph{Proc. IEEE International Conference on Consumer Electronics}, Las Vegas, Nevada, USA, pp. 1-2, Jan. 2008.
+	
 \bibitem{ref2}
-	G. J. Sullivan, J. R. Ohm, W. J. Han, and T. Wiegand, ``Overview of the High Efficiency Video Coding (HEVC) Standard,'' \emph{IEEE Trans. Circuits Syst. Video Technol.}, vol. 22, no. 12, pp. 1649-1668, Dec. 2012.
+G. J. Sullivan, J. R. Ohm, W.-J. Han, and T. Wiegand, ``Overview of the high efficiency video coding (HEVC) standard,'' \emph{IEEE Transactions on Circuits and Systems for Video Technology}, vol. 22, no. 12, pp. 1649-1668, Sep. 2012.
+	
 \bibitem{ref3}
-	F. Bossen, B. Bross, K. Sühring, and D. Flynn, ``HEVC complexity and implementation analysis,'' \emph{IEEE Trans. Circuits Syst. Video Technol.}, vol. 22, no. 12, pp. 1685?1696, Dec. 2012.
+F. Bossen, B. Bross, K. Sühring, and D. Flynn, ``HEVC complexity and implementation analysis,'' \emph{IEEE Transactions on Circuits and Systems for Video Technology}, vol. 22, no. 12, pp. 1685-1696, Oct. 2012.
+	
 \bibitem{ref4}
-	H. Koumaras, M. Kourtis, and D. Martakus, ``Benchmarking the encoding efficiency of H.265/HEVC and H.264/AVC,'' in \emph{Proc. Future Network and Mobile Summit}, Berlin, Germany, pp. 1-7, Jul. 2012.
+	H. Koumaras, M. Kourtis, and D. Martakus, ``Benchmarking the encoding efficiency of H.265/HEVC and H.264/AVC,'' in \emph{Proc. Future Network \& Mobile Summit}, Berlin, Germany, pp. 1-7, Jul. 2012.
+	
 \bibitem{ref5}
-	IEEE{~}Std{~}1076-2008: IEEE Standard VHDL Language Reference Manual, Jan. 2009.
+``IEEE standard VHDL language reference manual,'' IEEE Std 1076-2008, Jan. 2009.
+	
 \bibitem{ref6}
-	IEEE{~}Std{~}1364-2005: IEEE Standard for Verilog Hardware Description Language, Apr. 2006.
+``IEEE standard for verilog hardware description language,'' IEEE Std 1364-2005, Apr. 2006.
+
 \bibitem{ref7}
-	S. Z. Ahmed, G. Sassatelli, L. Torres, and L. Rougel, ``Survey of new trends in industry for programmable hardware: FPGAs, MPPAs, MPSoCs, structured ASICs, eFPGAs and new wave of innovation in FPGAs," in \emph{Proc. International Conference on Field Programmable Logic and Applications}, Milano, Italy, pp. 291-297, Sep. 2010.
+S. Z. Ahmed, G. Sassatelli, L. Torres, and L. Roug\'e, ``Survey of new trends in industry for programmable hardware: FPGAs, MPPAs, MPSoCs, structured ASICs, eFPGAs and new wave of innovation in FPGAs,'' in \emph{Proc. International Conference on Field Programmable Logic and Applications}, Milano, Italy, pp. 291-297, Sep. 2010.
+
 \bibitem{ref8}
-	  B. K. Reddy, S. Sabbavarapu, and A. Acharyya, ``A new VLSI IC design automation methodology with reduced NRE costs and time-to-market using the NPN class Representation and functional symmetry," in \emph{Proc. IEEE International Symposium on Circuits and Systems}, Melbourne, Australia, pp. 177-180, Jun. 2014.
+B. K. Reddy, S. Sabbavarapu, and A. Acharyya, ``A new VLSI IC design automation methodology with reduced NRE costs and time-to-market using the NPN class Representation and functional symmetry,'' in \emph{Proc. IEEE International Symposium on Circuits and Systems}, Melbourne, Australia, pp. 177-180, Jun. 2014.
+
 \bibitem{ref9}
-	P. H. W. Leong, ``Recent Trends in FPGA Architectures and Applications," in \emph{Proc. IEEE International Symposium on Electronic Design}, Test and Applications, Hong Kong, SAR, China, pp. 137-141, Jan. 2008. 
+P. H. W. Leong, ``Recent trends in FPGA architectures and applications,'' in \emph{Proc. IEEE International Symposium on Electronic Design, Test and Applications}, Hong Kong, SAR, China, pp. 137-141, Jan. 2008. 
+
 \bibitem{ref10}
-	E. Monmasson and M. N. Cirstea, ``FPGA design methodology for industrial control systems - A review," \emph{IEEE Trans. Ind. Electron.}, vol. 54, no. 4, pp. 1824-1842, Aug. 2007.
+E. Monmasson and M. N. Cirstea, ``FPGA design methodology for industrial control systems - A review,'' \emph{IEEE Transactions on Industrial Electronics}, vol. 54, no. 4, pp. 1824-1842, Aug. 2007.
+	
 \bibitem{ref11}
-	A. H. Salman, T.  Adiono,  W. A. Cahyadi,  Y. Kurniawan, ``SOC design and FPGA implementation of Digital TV receiver," in \emph{Proc. International Conference on Telecommunication Systems, Services, and Applications}, Bali, Indonesia, pp. 125-129, Oct. 2012.
+A. H. Salman, T.  Adiono,  W. A. Cahyadi,  Y. Kurniawan, ``SOC design and FPGA implementation of Digital TV receiver,'' in \emph{Proc. International Conference on Telecommunication Systems, Services, and Applications}, Bali, Indonesia, pp. 125-129, Oct. 2012.
+	
 \bibitem{ref12}
-	ABNT{~}NBR{~}15602-3: Digital Terrestrial Television, Video coding, audio coding and multiplexing Part 3: Signal multiplexing systems, Nov. 2007.
+``Digital terrestrial television, video coding, audio coding and multiplexing Part 3: Signal multiplexing systems,'' ABNT NBR 15602-3, Nov. 2007.
+	
 \bibitem{ref13}
-	  C.-T. Lin, S.-J. Horng, and Y.-L. Huang, ``Hardware Resource Manager for Reconfiguration System,'' in \emph{Proc. International Symposium on Biometrics and Security Technologies}, Taipei, Taiwan, pp. 59-65, Mar. 2012.
+C.-T. Lin, S.-J. Horng, and Y.-L. Huang, ``Hardware resource manager for reconfiguration system,'' in \emph{Proc. International Symposium on Biometrics and Security Technologies}, Taipei, Taiwan, pp. 59-65, Mar. 2012.
+		
 \bibitem{ref14}
-	J. Eachanobe, I. Del Campo, R. Finker, and k. Basterretxea, ``Dynamic Partial Reconfiguration in Embedded Systems for Intelligent Environments,'' in \emph{Proc. IEEE International Conference on Intelligent Environments}, Guanajuato, Mexico, pp. 26-29, Jun. 2012.
+J. Eachanobe, I. Del Campo, R. Finker, and k. Basterretxea, ``Dynamic Partial Reconfiguration in embedded systems for intelligent environments,'' in \emph{Proc. IEEE International Conference on Intelligent Environments}, Guanajuato, Mexico, pp. 26-29, Jun. 2012.
+	
 \bibitem{ref15}
-	D. Hillenbrand, C. Brugger, J. Tao, S. Yang, and M. Balzer, ``RIVER: Reconfigurable Pre-Synthesized-Streaming Architecture for Signal Processing on FPGAs,'' in \emph{Proc. Parallel and Distributed Processing Symposium Workshops and PhD Forum}, Shanghai, China, pp. 397-400, May 2012.
+D. Hillenbrand, C. Brugger, J. Tao, S. Yang, and M. Balzer, ``RIVER: reconfigurable pre-synthesized-streaming architecture for signal processing on FPGAs,'' in \emph{Proc. IEEE Parallel and Distributed Processing Symposium Workshops \& PhD Forum}, Shanghai, China, pp. 397-400, May 2012.
+
 \bibitem{ref16}
-	O. Serres, V. K. Narayana, and T. El-Ghazawi, ``An Architecture for Reconfigurable Multi-core Explorations,'' in \emph{Proc. International Conference on Reconfigurable Computing and FPGAs}, Cancun, Mexico, pp.105-110, Dec. 2011.
+O. Serres, V. K. Narayana, and T. El-Ghazawi, ``An architecture for reconfigurable multi-core explorations,'' in \emph{Proc. International Conference on Reconfigurable Computing and FPGAs}, Cancun, Mexico, pp. 105-110, Dec. 2011.
+
+\textcolor{blue}{\bibitem{ref34}
+S. S. Bhattacharyya, J. Eker, J. W. Janneck, C. Lucarz, M. Mattavelli, and M. Raulet, ``Overview of the mpeg reconfigurable video coding framework,'' \emph{Journal of Signal Processing Systems}, vol. 63, no. 2, pp. 251-263, May 2011.}
+
+\textcolor{blue}{\bibitem{ref40}
+M. Mattavelli,  I. Amer, and M. Raulet, ``The reconfigurable video coding standard,'' {\it IEEE Signal Processing Magazine}, vol. 27, no. 3, pp. 159-167, May 2010.}
+
+\textcolor{blue}{\bibitem{ref37}
+J. Nezan, N. Siret, M. Wipliez, F. Palumbo, and L. Raffo,`` MultiPurpose
+systems: a novel dataflow-based generation and mapping strategy,'' in {\it Proc. International Symposium on Circuits and Systems}, Seoul, Korea, pp. 3073-3076, May 2012.}
+
+\textcolor{blue}{\bibitem{ref35}
+E. Bezati, S. Casale-Brunet, M. Mattavelli, and J. W. Janneck, ``Synthesis and optimization of highlevel stream programs,'' in {\it Proc. Electronic System Level Synthesis Conference}, Austin, USA, pp. 1-6, May 2013.}
+
+\textcolor{blue}{\bibitem{ref36}
+J. W. Janneck, I. D. Miller, D. B. Parlour, G. Roquier, M. Wipliez, and M. Raulet, ``Synthesizing hardware from dataflow programs: an MPEG-4 simple profile decoder case study,'' {\it Journal of Signal Processing Systems}, vol. 63, no. 2, pp. 241-249, May 2011.}
+
+\textcolor{blue}{\bibitem{ref39}
+G. Roquier, M. Wipliez, M. Raulet, J.-F. Nezan, and O. Deforges, ``Software synthesis of CAL actors for the MPEG reconfigurable Video Coding framework,'' in {\it Proc. IEEE International Conference on Image Processing}, San Diego, USA, pp. 1408-1411, Oct. 2008.}
+
+\textcolor{blue}{\bibitem{ref41}
+M. Wipliez, G. Roquier, J.-F. Nezan, ``Software Code Generation for the RVC-CAL Language,'' {\it Journal of Signal Processing Systems}, vol. 63, no. 2, pp. 203-213, May 2011.}
+
+\textcolor{blue}{\bibitem{ref38}
+C. Sau, L. Raffo, F. Palumbo, E. Bezati, S. Casale-Brunet, and M. Mattavelli, ``Automated design flow for coarsegrained reconfigurable platforms: an RVC-CAL multistandard decoder usecase,'' in {\it Proc. International Conference on Embedded Computer Systems: Architectures, Modeling, and Simulation}, Agios Konstantinos, Greece, pp. 59-66, July 2014.}
+
 \bibitem{ref17}
-	ISO/IEC{~}13818-1: Information Technology ? Generic Coding of Moving Pictures and Associated Audio Information: Systems, Dec. 2000.
+``Information technology - Generic coding of moving pictures and associated audio information: systems,'' ISO/IEC 13818-1, Dec. 2000.
+
 \bibitem{ref18}
-	ABNT{~}NBR{~}15606-3: Digital Terrestrial Television, Data Coding and Transmission Specification for Digital Broadcasting Part 3: Data Transmission Specification, Mar. 2012.
+``Digital terrestrial television, data coding and transmission specification for digital broadcasting part 3: data transmission specification,'' ABNT NBR 15606-3, Mar. 2012.
+
 \bibitem{ref19}
-	M. S. Park, Y. J. Lee, J. H. Choi, and J. S. Choi, ``The design and implementation of data server for data broadcast service,'' in \emph{Proc. International Conference on Electronics, Circuits and Systems}, Sharjah, United Arab Emirates, vol. 3, pp. 1176-1179, Dec. 2003.
+M. S. Park, Y. J. Lee, J. H. Choi, and J. S. Choi, ``The design and implementation of data server for data broadcast service,'' in \emph{Proc. International Conference on Electronics, Circuits and Systems}, Sharjah, United Arab Emirates, vol. 3, pp. 1176-1179, Dec. 2003.
+
 \bibitem{ref20}
-	E. P. J. Tozer, {\it Broadcast Engineer?s Reference Book}, Focal Press: Burlington, USA, 2004, pp. 352-355.
+E. P. J. Tozer, {\it Broadcast Engineer's Reference Book}, Focal Press: Burlington, USA, 2004, pp. 352-355.
+	
 \bibitem{ref21}
-	W. Fischer, {\it Digital Video and Audio Broadcasting Technology: A Practical Engineering Guide}, Springer Verlag: Berlin, Germany, 2010, pp. 457-465.
+W. Fischer, {\it Digital Video and Audio Broadcasting Technology: A Practical Engineering Guide}, Springer Verlag: Berlin, Germany, 2010, pp. 457-465.
+	
 \bibitem{ref22}
-	G. Castagnoly, S. Brauer and M. Herrmann, ``Optimization of cyclic redundancy-check codes with 24 and 32 parity bits", \emph{IEEE Trans. Commun.}, vol. 41, no. 6, pp.883 -892, Jun 1993.
+G. Castagnoly, S. Brauer and M. Herrmann, ``Optimization of cyclic redundancy-check codes with 24 and 32 parity bits,'' \emph{IEEE Transactions on Communications}, vol. 41, no. 6, pp.883 -892, Jun 1993.
+
 \bibitem{ref23}
-	U. Reimers, {\it DVB - The Family of International Standards for Digital Video Broadcasting}, 2nd~ed., Springer Verlag: Berlin, Germany, 2005, pp. 287-288.
+U. Reimers, {\it DVB - The Family of International Standards for Digital Video Broadcasting}, 2nd~ed., Springer Verlag: Berlin, Germany, 2005, pp. 287-288.
+	
 \bibitem{ref24}
-	ETSI{~}EN{~}301{~}192: Digital Video Broadcasting (DVB): Specification for Data Broadcasting, V1.5.1, Nov. 2009.
+``Digital video broadcasting (DVB): specification for data broadcasting,'' ETSI EN 301 192 - V1.5.1, Nov. 2009.
+
 \bibitem{ref25}
-	ETSI{~}TR{~}101{~}202: Digital Video Broadcasting (DVB); Implementation guidelines for Data Broadcasting, V1.2.1, Jan. 2003.
+``Digital video broadcasting (DVB): implementation guidelines for Data Broadcasting,'' ETSI TR 101 202 - V1.2.1, Jan. 2003.
+
 \bibitem{ref26}
-	R. J. Crinon, ``The DSM-CC Object Carousel for Broadcast Data Services," in \emph{Proc. IEEE International Conference on Consumer Electronics, Rosemont}, USA, pp. 246-247, Jun. 1997.
+R. J. Crinon, ``The DSM-CC object carousel for broadcast data services,'' in \emph{Proc. IEEE International Conference on Consumer Electronics}, Rosemont, USA, pp. 246-247, Jun. 1997.
+
 \bibitem{ref27}
-	ABNT{~}NBR{~}15604: Digital Terrestrial Television ? Receivers, Nov. 2007.
+``Digital terrestrial television - receivers,'' ABNT NBR 15604, Nov. 2007.
+	
 \bibitem{ref28}
-	E. Stavinov, {\it 100 Power Tips For FPGA Designers}, CreateSpace Independent Publishing Platform: Charleston, USA, 2011, pp. 171-200.
+E. Stavinov, {\it 100 Power Tips For FPGA Designers}, CreateSpace Independent Publishing Platform: Charleston, USA, 2011, pp. 171-200.
+	
 \bibitem{ref29}
-	IEEE{~}Std.{~}1149.1: IEEE Standard for Test Access Port and Boundary-Scan Architecture, 2013.
+``IEEE standard for test access port and boundary-scan architecture,'' IEEE Std. 1149.1, 2013.
+	
 \bibitem{ref30}
-	  M. Strubel, ``Implementing JTAG debugging solutions for custom hardware,'' in \emph{Proc. Embedded World 2012}, Nuremberg, Germany, pp. 1-17, Feb. 2012.
+M. Strubel, ``Implementing JTAG debugging solutions for custom hardware,'' in \emph{Proc. Embedded World 2012}, Nuremberg, Germany, pp. 1-17, Feb. 2012.
+		
 \bibitem{ref31}
-	  R. Dominic, ``Design and Implementation of an On-Chip Debug Solution for Embedded Target Systems based on the ARM7 and ARM9 Family,'' Ph.D. thesis, University of Applied Sciences Augsburg, Augsburg, Germany, 2005.
+R. Dominic, ``Design and implementation of an on-chip debug solution for embedded target systems based on the ARM7 and ARM9 family,'' Ph.D. thesis, University of Applied Sciences Augsburg, Augsburg, Germany, 2005.
+		
 \bibitem{ref32}
-	K. P. Parker, {\it The Boundary-Scan Handbook}, 3rd~ed., Kluwer Academic Publishers: Massachusetts, USA, 2003, pp. 10-60.
+K. P. Parker, {\it The Boundary-Scan Handbook}, 3rd~ed., Kluwer Academic Publishers: Massachusetts, USA, 2003, pp. 10-60.
+
 \bibitem{ref33}
-	ARIB{~}Standard{~}STD-B31: Transmission System for Digital Terrestrial Television Broadcasting, Nov. 2005.
+``Transmission system for digital terrestrial television broadcasting,'' ARIB Standard STD-B31, Nov. 2005.
 	
 \end{thebibliography}
 
