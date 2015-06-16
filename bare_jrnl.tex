@@ -504,7 +504,7 @@ Currently, the semiconductor industry and open core communities have boosted the
 
 Furthermore, current FPGA technologies are already a good option, when compared to ASICs, due to price equalization between them, which is provided by the amortization of non-recurring engineering (NRE) costs among customers, for each integrated circuit (IC) family~\cite{ref8},~\cite{ref9}. This reinforces the development of hardware architectures and critical tasks using reconfigurable devices, in embedded systems. 
 
-\textcolor{red}{falar que o principal nicho desta aplicação são os merdados verticais, pois as operadoras por assinatura gostariam de não trocar os receptores... fale tambem que ficaria difícil para dispositivos móveis}
+\textcolor{blue}{This kind of application is directed to vertical markets specially those that focus on tv subscription operators that frequently replace all receivers of network. In this case the reuse of receivers could bring a lot of benefits for the tv operator. Beyond of the fixed receivers if were considered the replacement of mobile devices the envolved costs are unworkable}
 
 The growth in the adoption of FPGA solutions can already be seen in various segments of the consumer electronics industry~\cite{ref10}, especially DTV, where such devices are used for implementing specific functions in corresponding receivers ({\em e.g.}, timing control and output interfaces)~\cite{ref11}.
 
@@ -535,7 +535,7 @@ Indeed, architectures with hardware resource management present a new trend in e
 
 Intelligent embedded systems can make use of the partial dynamic hardware, for run-time reconfiguration. Such a feature, which is similar to a microprocessor multi-task system, allows a multiplex of distinct hardware modules to run at the same time. Thus, functional pre-synthesized hardware blocks, {\em i.e.}, logical blocks, can be reconfigured or not, according to system needs~\cite{ref14}. In that case, the use of partial dynamic reconfiguration causes a considerable reduction in power consumption, besides a significant decrease in device costs. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
-The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures. \textcolor{red}{rodrigo, estenda a explicacao disso}
+The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable.\textcolor{blue}{The system architecture are controled by a Microblaze device that is in charge to act with the system and reconfigure pre-synthesized hardware blocks at the FPGA. The list of pre-synthesized hardware blocks are kept on a flash memory.} In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures.
 
 A complete multi-core reconfigurable platform, combining processors with some reconfigurable logic, can provide a rich and flexible environment for application programmers, as proposed by Serres {\em et al}~\cite{ref16}. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
