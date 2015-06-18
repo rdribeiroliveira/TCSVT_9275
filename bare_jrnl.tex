@@ -536,7 +536,7 @@ Indeed, architectures with hardware resource management present a new trend in e
 
 Intelligent embedded systems can make use of the partial dynamic hardware, for run-time reconfiguration. Such a feature, which is similar to a microprocessor multi-task system, allows a multiplex of distinct hardware modules to run at the same time. Thus, functional pre-synthesized hardware blocks, {\em i.e.}, logical blocks, can be reconfigured or not, according to system needs~\cite{ref14}. \textcolor{blue}{The associated system architecture is controlled by a microcontroller device, which is in charge of reconfiguring pre-synthesized hardware blocks, in the FPGA device. In addition, a list of pre-synthesized hardware blocks are kept in flash memory.} This way, the use of partial dynamic reconfiguration causes a considerable reduction in power consumption, besides a significant decrease in device costs.
 
-The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. \textcolor{blue}{This feature is very important considering that state-of-the-art FPGA (e.g., Virtex-7) require tens of hours and gigabytes of memory to finish the compilation process.} In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures. 
+The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. \textcolor{blue}{Such a feature is very important, considering that state-of-the-art FPGA devices require large amounts of time and memory to finish the compilation process.} In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures. 
 
 A complete multi-core reconfigurable platform, combining processors with some reconfigurable logic, can provide a rich and flexible environment for application programmers, as proposed by Serres {\em et al}~\cite{ref16}. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
@@ -585,7 +585,7 @@ Fig.~\ref{figure:fig3} shows the basic components present in receiver architectu
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.0in]{images/Fig3.eps}
+\includegraphics[width=3.4in]{images/Fig3.eps}
 \caption{Receiver architecture composed of air interface (Front End), demultiplexer, H.264 decoder, and memories.}
 \label{figure:fig3}
 \end{figure}
@@ -664,14 +664,6 @@ Data & Synchronous			& {|}			& {|}	 			& {|}	 	& OK\\
 \label{figure:figcyc}
 \end{figure}
 
-%
-\begin{figure}[htb]
-\centering
-\includegraphics[width=3.1in]{images/bigpicture.eps}
-\caption{All steps envolved with the scheme.}
-\label{figure:bigpicture}
-\end{figure}
-%
 
 \subsection{Hardware Data Multiplexing in Transport Streams}\label{data-multiplexing}
 \textcolor{blue}{From the point of view of the DTV signal, the FPGA bit-stream is seen as regular data. This way, such content needs to be signaled ({\em i.e.}, a PID to identify the content flow and description information, using a new data table), in order to notify the receiver about its existence, in the broadcast signal.}
@@ -889,6 +881,18 @@ The FPGA reconfiguration is the last step of the entire proposed scheme. The mai
 \textcolor{red}{Falta falar de seguranca ... e fale que o FPGA deve prever algoritmos mais complexos que o atual... mais poder de processamento... deixe tudo em azul}
 
 \subsection{Discussion about the Proposed Methodology}\label{system-compatibility}
+
+\textcolor{blue}{Fig. \ref{figure:bigpicture} summarizes the proposed methodology, as explained in sections \ref{encap-method} to \ref{target-device}. As can be seen, it provides the transmission of pre-synthesized hardware cores, through MPEG-2 transport streams, in such a way that FPGA devices, integrated into commercial receivers, are addressed. Besides, the same content-transmission strategy already used for general data and SI ({\it e.g.} tables, sections, etc.), in digital television systems \cite{dvbsi,isdbtsi}, is employed.}
+
+
+%
+\begin{figure*}[htb]
+\centering
+\includegraphics[width=5.1in]{images/bigpicture.eps}
+\caption{All steps performed in the proposed scheme.}
+\label{figure:bigpicture}
+\end{figure*}
+%
 
 \textcolor{blue}{The proposed methodology provides the transmission of pre-synthesized hardware cores, addressing FPGA devices integrated into commercial receivers. Besides, the same content-transmission strategy already used for general data and SI ({\it e.g.} tables, sections, etc.), in digital television systems \cite{dvbsi,isdbtsi}, is employed.}
 
