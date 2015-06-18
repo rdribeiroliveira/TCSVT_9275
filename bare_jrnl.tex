@@ -513,7 +513,7 @@ The observations presented in the last paragraphs are the inspiration for the pr
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{images/Fig1.eps}
+\includegraphics[width=3.5in]{images/Fig1.eps}
 \caption{The FPGA bit-stream broadcast, in a DTV environment.}
 \label{figure:fig1}
 \end{figure}
@@ -584,7 +584,7 @@ Fig.~\ref{figure:fig3} shows the basic components present in receiver architectu
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{images/Fig3.eps}
+\includegraphics[width=3.0in]{images/Fig3.eps}
 \caption{Receiver architecture composed of air interface (Front End), demultiplexer, H.264 decoder, and memories.}
 \label{figure:fig3}
 \end{figure}
@@ -607,8 +607,8 @@ The standalone FPGA programmer system was based on an open-source JTAG reference
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{images/Fig4.eps}
-\caption{The DTV Receiver (host) connected to a reference FPGA board (target), through a USB/JTAG programmer cable.}
+\includegraphics[width=2.7in]{images/Fig4.eps}
+\caption{DTV Receiver (host) connected to a reference FPGA board (target), through a USB/JTAG programmer cable.}
 \label{figure:fig4}
 \end{figure}
 %
@@ -617,7 +617,7 @@ The standalone FPGA programmer system was based on an open-source JTAG reference
 
 The entire hardware reconfiguration scheme can be split into three distinct steps. The first consists of preparing data to be broadcast. In particular, that means encapsulating the synthesized FPGA bit-stream into a transport stream. Here, it is assumed that the bit-stream is already synthesized, tested, and validated for the same FPGA model used by the receiver. The second step involves filtering, remounting, checksum validation, and persistence. Finally, the final step uses the downloaded bit-stream to reconfigure the receiver FPGA module. All mentioned steps, which results in the complete reconfiguration process of the FPGA device compose the proposed scheme. The following sections discuss each procedure step, in detail.
 
-\textcolor{blue}{\subsection{Encapsulating Hardware data}
+\textcolor{blue}{\subsection{Encapsulating Hardware Data}
 \label{encap-method}
 In order to choose a transmission method for hardware reconfiguration modules, one must take into account data format and timing requirements. Regarding data format, the possible classifications are: delimited, undelimited, and datagrams. Delimited data can be divided into units with a given size, like objects, files, etc. Undelimited data, in turn, are considered continuous bit flows. Finally, datagrams consist in fragmenting data into packets, which is followed by a communication protocol. When addressing timing requirements, data can be synchronous, synchronized, and asynchronous. Synchronous data present timing links with other data on the same stream, which is commonly know as intra-media synchronization. Synchronized data must be presented in predetermined time instants and according to elements of other media, such as video or audio, which is commonly know as inter-media synchronization. Asynchronous data, in turn, do not present any timing requirements.  Table \ref{table:table-one} shows a summary of what was tackled here, regarding the data broadcasting mechanisms presented section \ref{data-broadcasting}.}
 
@@ -678,7 +678,7 @@ Thus, the hardware bit-stream is divided into sections of $4092$ bytes in length
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3in]{images/Fig5.eps}
+\includegraphics[width=3.5in]{images/Fig5.eps}
 \caption{The FPGA synthesis stream, divided into sequenced private sections of variable size, which are then organized into TS packets.}
 \label{figure:fig5}
 \end{figure}
@@ -853,7 +853,7 @@ The DTV-receiver resident system is configured to filter the transmitted content
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{images/Fig6.eps}
+\includegraphics[width=3.4in]{images/Fig6.eps}
 \caption{Steps to check the UIT content and find a broadcast core hardware suitable for the receiver, in order to retrieve the correct PID for filtering.}
 \label{figure:fig6}
 \end{figure}
@@ -866,7 +866,7 @@ The system keeps this iterative process until the last section is received, in o
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{images/Fig7.eps}
+\includegraphics[width=3.4in]{images/Fig7.eps}
 \caption{Steps involved in the process of obtaining the broadcast hardware core stream, which includes verification of each private section, downloading and content reassembling.}
 \label{figure:fig7}
 \end{figure}
@@ -880,23 +880,23 @@ The FPGA reconfiguration is the last step of the entire proposed scheme. The mai
 
 \subsection{Discussion about the Proposed Methodology}\label{system-compatibility}
 
-\textcolor{blue}{The proposed methodology provides the transmission of pre-synthesized hardware cores, addressing FPGAs integrated into commercial receivers. Besides, the same content-transmission strategy, which is already used for general data and SI ({\it e.g.} tables, etc.), is employed.}
+\textcolor{blue}{The proposed methodology provides the transmission of pre-synthesized hardware cores, addressing FPGA devices integrated into commercial receivers. Besides, the same content-transmission strategy already used for general data and SI ({\it e.g.} tables, sections, etc.), in digital television systems \cite{dvbsi,isdbtsi}, is employed.}
 
-\textcolor{blue}{As one may notice, the presented reconfiguration system, at the receiver, is based on JTAG communication, SVF files, which are retrieved from the digital TV signal, and a newly created SI table (UIT) and its associated descriptors (see section \ref{data-multiplexing}), which are in charge of providing information regarding the hardware reconfiguration content. The SVF format is a standard used by almost all FPGA manufacturers (\textcolor{red}{isso é verdade?}) and is compliant with the JTAG communication protocol. Besides, the proposed SI extension carries all necessary information regarding the FPGA device ({\it e.g.} manufacturer, part number, family identification, etc.) under update, which allows the complete identification of a specific unit. As a consequence, it is not restricted to a specific manufacturer or FPGA model and is flexible enough in order to be adapted to other scenarios. For example, nearly any format could be sent in private sections, as long as suitable modifications are done in the target receiver system, considering that related content is seen as a regular data flow by the data broadcast mechanisms.}
+\textcolor{blue}{As one may notice, the presented reconfiguration system, at the receiver, is based on JTAG communication, SVF files, which are retrieved from the digital TV signal, and a newly created SI table (UIT) and its associated descriptors (see section \ref{data-multiplexing}), which are in charge of providing information regarding the hardware reconfiguration content. The SVF format is a standard used by almost all FPGA manufacturers (\textcolor{red}{isso é verdade?}) and is compliant with the JTAG communication protocol. Besides, the proposed SI extension carries all necessary information regarding the FPGA device ({\it e.g.} manufacturer, part number, family identification, etc.) under update, which allows the complete identification of a given unit. As a consequence, it is not restricted to a specific manufacturer or FPGA model and is flexible enough in order to be adapted to other scenarios. For instance, nearly any given format could be sent in private sections, as long as suitable modifications are done in the target receiver system and the related content is seen as a regular data flow.}
 
-\textcolor{blue}{Regarding content reception, the pre-synthesized core will be accepted only if there is a match between the information transmitted, which was filtered from UIT, and the locally available FPGA device; otherwise, the receiving system simply ignores the acquired content and waits for a suitable content.}
+\textcolor{blue}{Regarding content reception, the pre-synthesized core will be accepted only if there is a match between the information transmitted, which was filtered from UIT, and the locally available FPGA device; otherwise, the receiving system simply ignores the acquired content and waits for suitable data.}
 
 \textcolor{blue}{It is worth noticing that the proposed scheme presents some overhead, which is related to the encapsulation in private sections, that is, the private section header, and SVF file format, which includes JTAG commands. \textcolor{red}{rodrigo, quantifique o overhead... em bytes}) } 
 
 
-\textcolor{blue}{The proposed methodology is based on an extension of current SI standards \textcolor{red}{aqui vai uma ref de SI}, without any modification regarding current structures, since it uses a new table (UIT) and associated descriptors, which were inspired by the AIT structure. Although that may sound complicated, its implementation is transparent and can even be done without a formal modification of the related standards, as a proprietary framework. Apart from that, the present approach addresses the complete update chain and provides an elegant and complete solution, which is still more feasible and simpler than isolated proprietary solutions or on-site maintenance.}
+\textcolor{blue}{The proposed methodology is based on an extension of SI standards \cite{dvbsi,isdbtsi}, without any modification regarding current structures, since it uses a new table (UIT) and associated descriptors, which were inspired by the AIT structure. Although that may sound intricate, its implementation is transparent and can even be done without a formal modification of the related standards, as a proprietary framework. Apart from that, the present approach addresses the complete update chain and provides an elegant and complete solution, which is still more feasible and simpler than isolated proprietary solutions or on-site maintenance.}
 
 \subsection{Reconfiguration-Process Test Results}\label{reconfig-process}
 
-As Proof of Concept (PoC), some HDL source code examples were synthesized, which aim at exciting the entire scheme. Fourth VHDL/Verilog source code examples are used, which are synthesized for a reference FPGA and then tested and validated, by means of an EDA tool.
+As Proof of Concept (PoC), some HDL source code examples were synthesized, whose goal is to use the entire scheme. Four VHDL/Verilog source code examples are used, which were synthesized for a reference FPGA and then tested and validated, by means of an EDA tool.
 
-\textcolor{blue}{The experimental setup used in this work include a set of tools necessary to validate all steps of this methodology. To synthesize the digital circuits was used a tool Quartus II v.11.0 provided by the Altera FPGA manufacturer. This tool generate the programmer file in several formats including the universal format, SVF. To multiplex the content on a transport stream, was used the Advanced Stream Combiner (ASC) tool provided by the manufacturer Rohde \& Schwarz. During the creation of the transport stream was add a new table (UIT) and the SVF content was split and multiplexed in private sections of 4080 bytes. To modulation and broadcast was used a VHF/UHF Modulator (DekTec DTU-215, USB-2 device) with a player tool StreamXpress v.3.10.2 also provided by DekTec company. The receiver device used for test and development was a NXP-STB225 IP and hybrid DTV set-top box provide by NXP semiconductors company. The reference design is a Linux OS based system and uses a dual core 300 MHz MIPS processor. Lastly, for the FPGA device was used a Nios Stratix EP1S10F780C6 development board.}
-\textcolor{red}{Rodrigo, aqui voce coloca um resumo do seu ambiente de testes, com placa de FPGA, frequencia da placa, computador, etc. coloque tudo que voce usou e deixe em azul}
+\textcolor{blue}{The experimental setup used in this work include a tool set necessary to validate all steps of the proposed methodology. In order to synthesize the digital circuits, the tool Quartus II v.11.0, provided by the Altera FPGA manufacturer, was used. Such a tool is able to generate the reprogramming file in several formats, including the chosen one, that is, SVF. The Advanced Stream Combiner (ASC) tool, provided by the manufacturer Rohde \& Schwarz, was employed to multiplex content in a transport stream. During the creation of the transport stream, UIT was added and the SVF content was split and multiplexed in private sections. Modulation and broadcast were achieved by using a VHF/UHF modulator (DekTec DTU-215, USB-2 device), with a companion player tool (StreamXpress v.3.10.2, also provided by DekTec). The receiver device used for test and development was a NXP-STB225 IP and hybrid DTV set-top box platform, which was provide by NXP semiconductors. The mentioned platform runs a version of the Linux operating system, on a dual core $300$ MHz MIPS processor. Finally, the employed FPGA device was a Nios Stratix EP1S10F780C6 development board, with $xxx$ MHz of clock.}
+\textcolor{red}{Rodrigo, falta a frequencia da placa}
 
 The validation is based on typical examples, in order to check if the FPGA is configured properly and the scheme works in a DTV system. The first pre-synthesized example converted to an SVF file (see section \ref{hardware-data}) is a simple binary-coded decimal (BCD) light emitting diode (LED) counter (Ex01.svf). The second one is a BCD to $7$-Seg decoder (Ex02.svf). The third is an example in which a text message is written on a 16x2 liquid crystal display (LCD) device (Ex03.svf). Finally, the fourth and last one is a $7$ segments counter (Ex04.svf).
 
@@ -1061,7 +1061,7 @@ The results obtained with the pre-synthesized core experiments show that the sys
 
 Critical tasks normally performed by an ASIC device, such as H.$264$ video decoding and crypto tasks, could be designed in FPGA, based on the present scheme. It would enable the incorporation of technological advances, such as new video compression schemes, which would create a flexible DTV network. Furthermore, other devices that use transport streams could also make use of the proposed scheme, in order to design intelligent architectures and flexible low-cost devices.
 
-\textcolor{blue}{In this work were not performed tests with the video decoders to measure the behavior of the system. The overhead presented by the methodology is largely affected by the pre-synthesized file format. Universal formats, such as, SVF include more information on final file increasing the size of the file. Consequently, the remounting process will be slower. After this, is necessary to parser the file to extract the SVF syntax before to reconfigure the FPGA device causing more overhead at the system. Whereas using proprietary formats the overhead is decreased and the complexity is transferred to the programmer device. Remembering that using proprietary formats is also necessary to implement dedicated reconfiguration schemes.}\textcolor{red}{Aqui comente novamente sobre o overhead da metodologia}
+\textcolor{blue}{It is worth noticing that the overhead presented by the methodology is largely affected by the pre-synthesized file format. Universal formats, such as SVF, include more information on file header, which increases the final file size. Consequently, the more private sections will be needed and the remounting process, at the receiver, will be slower. Indeed, regarding the latter, it is necessary to parser the reconfiguration file, in order to extract the SVF syntax. It is done before the reconfiguration process itself, which increases the system overhead. The file overhead can be reduced by using proprietary/dedicated reconfiguration schemes, however, the universal feature of such a scheme is lost}
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
@@ -1135,10 +1135,10 @@ F. Bossen, B. Bross, K. Sühring, and D. Flynn, ``HEVC complexity and implementat
 	H. Koumaras, M. Kourtis, and D. Martakus, ``Benchmarking the encoding efficiency of H.265/HEVC and H.264/AVC,'' in \emph{Proc. Future Network \& Mobile Summit}, Berlin, Germany, pp. 1-7, Jul. 2012.
 	
 \bibitem{ref5}
-``IEEE standard VHDL language reference manual,'' IEEE Std 1076-2008, Jan. 2009.
+IEEE standard, ``IEEE standard VHDL language reference manual,'' IEEE Std 1076-2008, Jan. 2009.
 	
 \bibitem{ref6}
-``IEEE standard for verilog hardware description language,'' IEEE Std 1364-2005, Apr. 2006.
+IEEE standard, ``IEEE standard for verilog hardware description language,'' IEEE Std 1364-2005, Apr. 2006.
 
 \bibitem{ref7}
 S. Z. Ahmed, G. Sassatelli, L. Torres, and L. Roug\'e, ``Survey of new trends in industry for programmable hardware: FPGAs, MPPAs, MPSoCs, structured ASICs, eFPGAs and new wave of innovation in FPGAs,'' in \emph{Proc. International Conference on Field Programmable Logic and Applications}, Milano, Italy, pp. 291-297, Sep. 2010.
@@ -1156,7 +1156,7 @@ E. Monmasson and M. N. Cirstea, ``FPGA design methodology for industrial control
 A. H. Salman, T.  Adiono,  W. A. Cahyadi,  Y. Kurniawan, ``SOC design and FPGA implementation of Digital TV receiver,'' in \emph{Proc. International Conference on Telecommunication Systems, Services, and Applications}, Bali, Indonesia, pp. 125-129, Oct. 2012.
 	
 \bibitem{ref12}
-``Digital terrestrial television, video coding, audio coding and multiplexing Part 3: Signal multiplexing systems,'' ABNT NBR 15602-3, Nov. 2007.
+ABNT Standard, ``Digital terrestrial television, video coding, audio coding and multiplexing Part 3: Signal multiplexing systems,'' ABNT NBR 15602-3, Nov. 2007.
 	
 \bibitem{ref13}
 C.-T. Lin, S.-J. Horng, and Y.-L. Huang, ``Hardware resource manager for reconfiguration system,'' in \emph{Proc. International Symposium on Biometrics and Security Technologies}, Taipei, Taiwan, pp. 59-65, Mar. 2012.
@@ -1167,8 +1167,8 @@ J. Eachanobe, I. Del Campo, R. Finker, and k. Basterretxea, ``Dynamic Partial Re
 \bibitem{ref15}
 D. Hillenbrand, C. Brugger, J. Tao, S. Yang, and M. Balzer, ``RIVER: reconfigurable pre-synthesized-streaming architecture for signal processing on FPGAs,'' in \emph{Proc. IEEE Parallel and Distributed Processing Symposium Workshops \& PhD Forum}, Shanghai, China, pp. 397-400, May 2012.
 
-\bibitem{Ribeiro12}
-M. Strubel, ``Implementing JTAG debugging solutions for custom hardware,'' in \emph{Proc. Embedded World 2012}, Nuremberg, Germany, pp. 1-17, Feb. 2012.
+\textcolor{blue}{\bibitem{Ribeiro12}
+M. Strubel, ``Implementing JTAG debugging solutions for custom hardware,'' in \emph{Proc. Embedded World 2012}, Nuremberg, Germany, pp. 1-17, Feb. 2012.}
 
 \bibitem{ref16}
 O. Serres, V. K. Narayana, and T. El-Ghazawi, ``An architecture for reconfigurable multi-core explorations,'' in \emph{Proc. International Conference on Reconfigurable Computing and FPGAs}, Cancun, Mexico, pp. 105-110, Dec. 2011.
@@ -1199,10 +1199,10 @@ M. Wipliez, G. Roquier, J.-F. Nezan, ``Software Code Generation for the RVC-CAL 
 C. Sau, L. Raffo, F. Palumbo, E. Bezati, S. Casale-Brunet, and M. Mattavelli, ``Automated design flow for coarsegrained reconfigurable platforms: an RVC-CAL multistandard decoder usecase,'' in {\it Proc. International Conference on Embedded Computer Systems: Architectures, Modeling, and Simulation}, Agios Konstantinos, Greece, pp. 59-66, July 2014.}
 
 \bibitem{ref17}
-``Information technology - Generic coding of moving pictures and associated audio information: systems,'' ISO/IEC 13818-1, Dec. 2000.
+ISO/IEC International Stardard, ``Information technology - Generic coding of moving pictures and associated audio information: systems,'' ISO/IEC 13818-1, Dec. 2000.
 
 \bibitem{ref18}
-``Digital terrestrial television, data coding and transmission specification for digital broadcasting part 3: data transmission specification,'' ABNT NBR 15606-3, Mar. 2012.
+ABNT Standard, ``Digital terrestrial television, data coding and transmission specification for digital broadcasting part 3: data transmission specification,'' ABNT NBR 15606-3, Mar. 2012.
 
 \bibitem{ref19}
 M. S. Park, Y. J. Lee, J. H. Choi, and J. S. Choi, ``The design and implementation of data server for data broadcast service,'' in \emph{Proc. International Conference on Electronics, Circuits and Systems}, Sharjah, United Arab Emirates, vol. 3, pp. 1176-1179, Dec. 2003.
@@ -1220,22 +1220,22 @@ G. Castagnoly, S. Brauer and M. Herrmann, ``Optimization of cyclic redundancy-ch
 U. Reimers, {\it DVB - The Family of International Standards for Digital Video Broadcasting}, 2nd~ed., Springer Verlag: Berlin, Germany, 2005, pp. 287-288.
 	
 \bibitem{ref24}
-``Digital video broadcasting (DVB): specification for data broadcasting,'' ETSI EN 301 192 - V1.5.1, Nov. 2009.
+Digital video broadcasting, ``Specification for data broadcasting,'' ETSI EN 301 192 - V1.5.1, Nov. 2009.
 
 \bibitem{ref25}
-``Digital video broadcasting (DVB): implementation guidelines for Data Broadcasting,'' ETSI TR 101 202 - V1.2.1, Jan. 2003.
+Digital video broadcasting, ``Implementation guidelines for Data Broadcasting,'' ETSI TR 101 202 - V1.2.1, Jan. 2003.
 
 \bibitem{ref26}
 R. J. Crinon, ``The DSM-CC object carousel for broadcast data services,'' in \emph{Proc. IEEE International Conference on Consumer Electronics}, Rosemont, USA, pp. 246-247, Jun. 1997.
 
 \bibitem{ref27}
-``Digital terrestrial television - receivers,'' ABNT NBR 15604, Nov. 2007.
+ABNT Standard, ``Digital terrestrial television - receivers,'' ABNT NBR 15604, Nov. 2007.
 	
 \bibitem{ref28}
 E. Stavinov, {\it 100 Power Tips For FPGA Designers}, CreateSpace Independent Publishing Platform: Charleston, USA, 2011, pp. 171-200.
 	
 \bibitem{ref29}
-``IEEE standard for test access port and boundary-scan architecture,'' IEEE Std. 1149.1, 2013.
+IEEE standard, ``IEEE standard for test access port and boundary-scan architecture,'' IEEE Std. 1149.1, 2013.
 	
 \bibitem{ref30}
 M. Strubel, ``Implementing JTAG debugging solutions for custom hardware,'' in \emph{Proc. Embedded World 2012}, Nuremberg, Germany, pp. 1-17, Feb. 2012.
@@ -1247,7 +1247,13 @@ R. Dominic, ``Design and implementation of an on-chip debug solution for embedde
 K. P. Parker, {\it The Boundary-Scan Handbook}, 3rd~ed., Kluwer Academic Publishers: Massachusetts, USA, 2003, pp. 10-60.
 
 \bibitem{ref33}
-``Transmission system for digital terrestrial television broadcasting,'' ARIB Standard STD-B31, Nov. 2005.
+ARIB Standard, ``Transmission system for digital terrestrial television broadcasting,'' ARIB STD-B31, Nov. 2005.
+
+\textcolor{blue}{\bibitem{dvbsi}
+Digital Video Broadcasting, ``Specification for service information (SI) in DVB systems,'' ETSI EN 300 468  - V1.14.1, May. 2014.}
+
+\textcolor{blue}{\bibitem{isdbtsi}
+ARIB Standard, ``Service Information for Digital Broadcasting System,'' ARIB STD-B10 -  V4.6-E2, Jun. 2008.}
 
 	
 \end{thebibliography}
