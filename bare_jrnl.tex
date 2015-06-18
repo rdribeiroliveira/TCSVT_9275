@@ -532,11 +532,11 @@ The remaining of this work is organized as follows. Section \ref{related-work} p
 
 Recent studies, on similar topics, present some related work based on intelligent hardware architectures, with hardware reconfiguration, as the core technology for building more compact and efficient systems.
 Indeed, architectures with hardware resource management present a new trend in embedded systems. In these approaches, pre-synthesized hardware unit functions are able to execute run-time reconfiguration of FPGA cores, according to the user's interaction, such as described by Lin {\em et al}~\cite{ref13}.  
-\textcolor{blue}{This work presents presents a hybrid architecture that uses a CPU and a reconfigurable device (FPGA) for performing tasks. Such a system is controlled by a resource manager that uses a decision algorithm to choose among pre-synthesized hardware cores or software modules, which are kept in a resource queue. When the mentioned resource manager indicates the use of a hardware module, the FPGA is reconfigured; otherwise, a software module is run by the CPU and performs the desired task.}
+\textcolor{blue}{This work presents a hybrid architecture that uses a CPU and a reconfigurable device (FPGA) for performing tasks. Such a system is controlled by a resource manager that uses a decision algorithm to choose among pre-synthesized hardware cores or software modules, which are kept in a resource queue. When the mentioned resource manager indicates the use of a hardware module, the FPGA is reconfigured; otherwise, a software module is run by the CPU and performs the desired task.}
 
 Intelligent embedded systems can make use of the partial dynamic hardware, for run-time reconfiguration. Such a feature, which is similar to a microprocessor multi-task system, allows a multiplex of distinct hardware modules to run at the same time. Thus, functional pre-synthesized hardware blocks, {\em i.e.}, logical blocks, can be reconfigured or not, according to system needs~\cite{ref14}. \textcolor{blue}{The associated system architecture is controlled by a microcontroller device, which is in charge of reconfiguring pre-synthesized hardware blocks, in the FPGA device. In addition, a list of pre-synthesized hardware blocks are kept in flash memory.} This way, the use of partial dynamic reconfiguration causes a considerable reduction in power consumption, besides a significant decrease in device costs.
 
-The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures. \textcolor{red}{rodrigo, estenda a explicacao disso}
+The reconfigurable streaming architecture, presented by Hillenbrand {\em et al}~\cite{ref15}, allows the inclusion of signal-processing pre-synthesized cores, into hardware description language (HDL) sources, to be run-time reconfigurable. \textcolor{blue}{This feature is very important considering that state-of-the-art FPGA (e.g., Virtex-7) require tens of hours and gigabytes of memory to finish the compilation process.} In that case, the pre-synthesized cores minimize the synthesis process and allow the design of adaptive reconfigurable system architectures. 
 
 A complete multi-core reconfigurable platform, combining processors with some reconfigurable logic, can provide a rich and flexible environment for application programmers, as proposed by Serres {\em et al}~\cite{ref16}. \textcolor{red}{rodrigo, estenda a explicacao disso}
 
@@ -665,9 +665,9 @@ Data & Synchronous			& {|}			& {|}	 			& {|}	 	& OK\\
 \end{figure}
 
 %
-\begin{figure}[ht]
+\begin{figure}[htb]
 \centering
-\includegraphics[width=3.5in]{images/bigpicture.eps}
+\includegraphics[width=3.1in]{images/bigpicture.eps}
 \caption{All steps envolved with the scheme.}
 \label{figure:bigpicture}
 \end{figure}
