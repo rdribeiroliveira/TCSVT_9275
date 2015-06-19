@@ -878,7 +878,6 @@ The system keeps this iterative process until the last section is received, in o
 
 The FPGA reconfiguration is the last step of the entire proposed scheme. The main idea is to exercise the complete chain, that is, from the beginning of the process (core multiplexing) to its end (FPGA reconfiguration). At this point, the receiver has already checked if the core characteristics fit the FPGA model (see section \ref{core-data}), used at the receiver, and has finished the system core reassembling (obtained broadcasted SVF file). Now, in this step, the remounted hardware core stream reaches a receiver reconfigurable target device, through a JTAG mode, as presented in section \ref{data-multiplexing}. 
 
-\textcolor{red}{Falta falar de seguranca ... e fale que o FPGA deve prever algoritmos mais complexos que o atual... mais poder de processamento... deixe tudo em azul}
 
 \subsection{Discussion about the Proposed Methodology}\label{system-compatibility}
 
@@ -904,6 +903,12 @@ The FPGA reconfiguration is the last step of the entire proposed scheme. The mai
 
 
 \textcolor{blue}{The proposed methodology is based on an extension of SI standards \cite{dvbsi,isdbtsi}, without any modification regarding current structures, since it uses a new table (UIT) and associated descriptors, which were inspired by the AIT structure. Although that may sound intricate, its implementation is transparent and can even be done without a formal modification of the related standards, as a proprietary framework. Apart from that, the present approach addresses the complete update chain and provides an elegant and complete solution, which is still more feasible and simpler than isolated proprietary solutions or on-site maintenance.}
+
+\textcolor{blue}{Another interesting area related to this framework is security. Although it is not the focus of the present work, given that the main goals were to prove feasibility and also provide a complete and consistent framework, which could be readily used and further extended, some ideas may be tackled. Currently, there is a trend towards the adoption of security-by-design approaches, where built-in security tools are already available within the framework, that is, the system is designed from the ground up to be secure \cite{win8}. Another initiative is proof-carrying hardware (PCH), which may mitigate malicious code addition to IP modules, through the provision of functional specifications and security properties \cite{pch,pchmicro}. Actually, modules are validated by an automatic proof checker, through device code and the property proof. In summary, regarding the proposed approach, security tools can be added to the host system and other parts of the framework ({\it e.g.} SI, etc.), in order to prevent hardware trojans or attacks to the embedded system.}
+
+\textcolor{blue}{Finally, the present proposal deals with evolution and standard update, which is directly related to resource availability for future hardware modules. Complexity measurements depend on many issues, like chosen platform and targeted performance. Besides, the number of choices in a standard is not necessarily linked to the implementation complexity. For instance, regarding video coding, Bossen {\em et al} \cite{ref3} initially suggested that the software implementation cost of an HEVC decoder would not be much higher than that of an H.264/AVC one, although it is not obvious. In addition, one may notice that the number of used logic gates may be highly influenced by the parallelism supported by the HEVC standard \cite{hevc}. Consequently, given that IP developers already have a wide experience with previous solutions ({\it e.g.} MPEG-2, MPEG-4 AVC/H.264 and HEVC), they may be able to roughly predict future needs and then advise set-top box manufacturers, in order to integrate FPGA devices that may be updated for one or two future generations.}
+
+
 
 \subsection{Reconfiguration-Process Test Results}\label{reconfig-process}
 
@@ -1213,7 +1218,7 @@ M. Wipliez, G. Roquier, J.-F. Nezan, ``Software Code Generation for the RVC-CAL 
 C. Sau, L. Raffo, F. Palumbo, E. Bezati, S. Casale-Brunet, and M. Mattavelli, ``Automated design flow for coarsegrained reconfigurable platforms: an RVC-CAL multistandard decoder usecase,'' in {\it Proc. International Conference on Embedded Computer Systems: Architectures, Modeling, and Simulation}, Agios Konstantinos, Greece, pp. 59-66, July 2014.}
 
 \bibitem{ref17}
-ISO/IEC International Stardard, ``Information technology - Generic coding of moving pictures and associated audio information: systems,'' ISO/IEC 13818-1, Dec. 2000.
+ISO/IEC International Standard, ``Information technology - Generic coding of moving pictures and associated audio information: systems,'' ISO/IEC 13818-1, Dec. 2000.
 
 \bibitem{ref18}
 ABNT Standard, ``Digital terrestrial television, data coding and transmission specification for digital broadcasting part 3: data transmission specification,'' ABNT NBR 15606-3, Mar. 2012.
@@ -1228,7 +1233,7 @@ E. P. J. Tozer, {\it Broadcast Engineer's Reference Book}, Focal Press: Burlingt
 W. Fischer, {\it Digital Video and Audio Broadcasting Technology: A Practical Engineering Guide}, Springer Verlag: Berlin, Germany, 2010, pp. 457-465.
 	
 \bibitem{ref22}
-G. Castagnoly, S. Brauer and M. Herrmann, ``Optimization of cyclic redundancy-check codes with 24 and 32 parity bits,'' \emph{IEEE Transactions on Communications}, vol. 41, no. 6, pp.883 -892, Jun 1993.
+G. Castagnoly, S. Brauer and M. Herrmann, ``Optimization of cyclic redundancy-check codes with 24 and 32 parity bits,'' \emph{IEEE Transactions on Communications}, vol. 41, no. 6, pp.883-892, Jun. 1993.
 
 \bibitem{ref23}
 U. Reimers, {\it DVB - The Family of International Standards for Digital Video Broadcasting}, 2nd~ed., Springer Verlag: Berlin, Germany, 2005, pp. 287-288.
@@ -1268,6 +1273,18 @@ Digital Video Broadcasting, ``Specification for service information (SI) in DVB 
 
 \textcolor{blue}{\bibitem{isdbtsi}
 ARIB Standard, ``Service Information for Digital Broadcasting System,'' ARIB STD-B10 -  V4.6-E2, Jun. 2008.}
+
+\textcolor{blue}{\bibitem{win8}
+J. Souren, ``Security by design: hardware-based security in Windows 8,'' \emph{Computer Fraud \& Security}, vol. 2013, no. 5, pp. 18-20, May 2013.}
+
+\textcolor{blue}{\bibitem{pch}
+E. Love, Y. Jin, and Y. Makris, ``Proof-carrying hardware intellectual property: A pathway to trusted module acquisition,'' \emph{IEEE Transactions on Information Forensics and Security}, vol. 7, no. 1, pp. 25-40, 2012.}
+
+\textcolor{blue}{\bibitem{pchmicro}
+Y. Jin and Y. Makris, ``A proof-carrying based framework for trusted microprocessor IP,'' in \emph{Proc. IEEE/ACM International Conference on Computer-Aided Design}, San Jose, USA, pp. 824-829, Nov. 2013.}
+
+\textcolor{blue}{\bibitem{hevc}
+ISO/IEC International Standard, ``Information technology -- high efficiency coding and media delivery in heterogeneous environments -- part 2: high efficiency video coding,'' ISO/IEC 23008-2, May. 2015.}
 
 	
 \end{thebibliography}
