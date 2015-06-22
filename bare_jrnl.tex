@@ -639,7 +639,6 @@ The entire hardware reconfiguration scheme can be split into three distinct step
 \label{encap-method}
 In order to choose a transmission method for hardware reconfiguration modules, one must take into account data format and timing requirements. Regarding data format, as already mentioned, the possible classifications are: delimited, un-delimited, and datagrams. When addressing timing requirements, data can be synchronous, synchronized, and asynchronous. Table \ref{table:table-one} shows a summary of what was tackled in this work, regarding the data broadcasting mechanisms presented section \ref{data-broadcasting}.}
 
-\textcolor{red}{rodrigo, veja se essa tabela estah ok... ela parece diferente da presente na tese... e transforme as figuras 1 e 5 em niveis de cinza}
 \textcolor{blue}{\begin{table}[ht]
 \renewcommand{\arraystretch}{1.18}
 \begin{center} {\small
@@ -659,11 +658,11 @@ In order to choose a transmission method for hardware reconfiguration modules, o
 						& & & & &\\
 Support & Synchronous		& {|} 			& {|}	 			& OK 	& {|}\\
 unbounded & Asynchronous	& OK 		& OK 			& {|}	 	& {|}\\
-Data & Synchronous			& {|}			& {|}	 			& OK 	& {|}\\
+Data & Synchronized			& {|}			& {|}	 			& OK 	& {|}\\
 						& & & & &\\
 Support & Synchronous		& {|} 			& {|}	 			& {|}	 	& {|}\\
-unbounded & Asynchronous	& {|} 			& OK 			& {|}	 	& OK\\
-Data & Synchronous			& {|}			& {|}	 			& {|}	 	& OK\\
+bounded & Asynchronous	& {|} 			& OK 			& {|}	 	& OK\\
+Data & Synchronized			& {|}			& {|}	 			& {|}	 	& OK\\
 \hline\hline
 \end{tabular} }
 \end{center}
