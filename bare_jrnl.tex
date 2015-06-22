@@ -513,7 +513,7 @@ The observations presented in the last paragraphs are the inspiration for the pr
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.5in]{images/Fig1.eps}
+\includegraphics[width=3.4in]{images/Fig1.eps}
 \caption{The FPGA bit-stream broadcast, in a DTV environment.}
 \label{figure:fig1}
 \end{figure}
@@ -563,7 +563,7 @@ Fig.~\ref{figure:fig2} shows a transport stream with different packets, which co
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.5in]{images/Fig2.eps}
+\includegraphics[width=3.4in]{images/Fig2.eps}
 \caption{Transport stream packet structure used to carry different data types, which include hardware reconfiguration data.}
 \label{figure:fig2}
 \end{figure}
@@ -695,7 +695,7 @@ Thus, the hardware bit-stream is divided into sections of $4092$ bytes in length
 %
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.5in]{images/Fig5.eps}
+\includegraphics[width=3.4in]{images/Fig5.eps}
 \caption{The FPGA synthesis stream, divided into sequenced private sections of variable size, which are then organized into TS packets.}
 \label{figure:fig5}
 \end{figure}
@@ -720,34 +720,34 @@ Other information, about the transmitted hardware core, must also be included an
 Data Structure 				& Bit Rate (No. of bits) 	& Mnemonic 	& Value\\
 \hline\hline
 update\_information\_table() \{	& 					&			&		\\			
-table\_id					& 8					&	uimsbf	& 0x91	\\
-section\_syntax\_indicator		& 1  					&	bslbf		&		\\	
-hw\_core\_flag				& 1					&	bslbf		&		\\
-Reserved					& 2					&	bslbf		&		\\
-section\_lenght				& 12					&	uimsbf	&		\\
-fpga\_core\_number			& 16					&	uimsbf	&		\\
-Reserved					& 2					&	bslbf		&		\\	
-version\_number			& 5					&	uimsbf	&		\\
-current\_next\_indicator		& 1					&	bslbf		&		\\
-section\_number			& 8					&	uimsbf	&		\\
-last\_section\_number		& 8					&	uimsbf	&		\\
-reserved\_future\_use		& 4					&	uimsbf	&		\\
-update\_loop\_lenght			& 12					&	uimsbf	&		\\
-for (i=0; i \textless N; i++) \{	&				 	&			&		\\			
-descriptor()				& 					&			&		\\	
-\}						& 					&			&		\\
-reserved\_future\_use		& 4					&	bslbf		&		\\
-update\_loop\_length			& 12					&	uimsbf	&		\\
-for (i=0; i \textless N; i++) \{	&				 	&			&		\\	
-update\_hw\_identifier() 		& 					&			&		\\	
-reserved\_future\_use		& 8					&	uimsbf	&		\\
-reserved\_future\_use		& 4					&	bslbf		&		\\
-descriptors\_loop\_length		& 12					&	uimsbf	&		\\
-for(i=0; i \textless N; i++) \{ 	&				 	&			&		\\
-descriptor() 				& 					&			&		\\
-\}						& 					&			&		\\
-\} 						&				 	&			&		\\
-CRC\_32 					& 32					&	rpchof	&		\\
+~~~table\_id					& 8					&	uimsbf	& 0x91	\\
+~~~section\_syntax\_indicator		& 1  					&	bslbf		&		\\	
+~~~hw\_core\_flag				& 1					&	bslbf		&		\\
+~~~Reserved					& 2					&	bslbf		&		\\
+~~~section\_lenght				& 12					&	uimsbf	&		\\
+~~~fpga\_core\_number			& 16					&	uimsbf	&		\\
+~~~Reserved					& 2					&	bslbf		&		\\	
+~~~version\_number			& 5					&	uimsbf	&		\\
+~~~current\_next\_indicator		& 1					&	bslbf		&		\\
+~~~section\_number			& 8					&	uimsbf	&		\\
+~~~last\_section\_number		& 8					&	uimsbf	&		\\
+~~~reserved\_future\_use		& 4					&	uimsbf	&		\\
+~~~update\_loop\_lenght			& 12					&	uimsbf	&		\\
+~~~for (i=0; i \textless N; i++) \{	&				 	&			&		\\			
+~~~~~~descriptor()				& 					&			&		\\	
+~~~\}						& 					&			&		\\
+~~~reserved\_future\_use		& 4					&	bslbf		&		\\
+~~~update\_loop\_length			& 12					&	uimsbf	&		\\
+~~~for (i=0; i \textless N; i++) \{	&				 	&			&		\\	
+~~~~~~update\_hw\_identifier() 		& 					&			&		\\	
+~~~~~~reserved\_future\_use		& 8					&	uimsbf	&		\\
+~~~~~~reserved\_future\_use		& 4					&	bslbf		&		\\
+~~~~~~descriptors\_loop\_length		& 12					&	uimsbf	&		\\
+~~~~~~for(i=0; i \textless N; i++) \{ 	&				 	&			&		\\
+~~~~~~~~~descriptor() 				& 					&			&		\\
+~~~~~~\}						& 					&			&		\\
+~~~\} 						&				 	&			&		\\
+~~~CRC\_32 					& 32					&	rpchof	&		\\
 \}						& 					&			&		\\
 \hline
 \end{tabular} }
@@ -769,11 +769,11 @@ The $fpga\_core\_number$ field identifies the number of hardware cores being cur
 Data Structure 				& Bit Rate (No. of bits) 	& Mnemonic 	& Value\\
 \hline\hline
 update\_hw\_identifier () \{		&					&			&	     \\			
-fpga\_core\_size			& 32					& bslbf		&	     \\
-fpga\_core\_version			& 16					& bslbf		&	     \\
-fpga\_core\_module\_name()	&					&			&	     \\		
-fpga\_core\_device\_info()		&					&			&	     \\	
-fpga\_section\_identifier()		&					&			&	     \\	
+~~~fpga\_core\_size			& 32					& bslbf		&	     \\
+~~~fpga\_core\_version			& 16					& bslbf		&	     \\
+~~~fpga\_core\_module\_name()	&					&			&	     \\		
+~~~fpga\_core\_device\_info()		&					&			&	     \\	
+~~~fpga\_section\_identifier()		&					&			&	     \\	
 \}						&					&			&	     \\
 \hline
 \end{tabular} }
@@ -795,22 +795,22 @@ TABLE~\ref{table:table-four} presents the syntax of the $fpga\_core\_module\_nam
 Data Structure 				& Bit Rate (No. of bits) 	& Mnemonic 	& Value\\
 \hline\hline
 fpga\_core\_module\_name() \{	&					&			&	     \\		
-descriptor\_tag				& 8					& uimsbf		& 0x01  \\		
-descriptor\_lenght			& 8					& uimsbf		&	     \\		
-for(i=0; i \textless N; i++)\{		&					&			&	     \\	
-reserved\_future\_use		& 24					& bslbf		&	     \\		
-descriptor\_core\_length		& 8					& uimsbf		&	     \\		
-for(i=0; i \textless N; i++) \{	&					&			&	     \\		
-  fpga\_core\_module\_name	& 8					& uimsbf		&	     \\		
-\}						&					&			&	     \\
-\}						&					&			&	     \\
+~~~descriptor\_tag				& 8					& uimsbf		& 0x01  \\		
+~~~descriptor\_lenght			& 8					& uimsbf		&	     \\		
+~~~for(i=0; i \textless N; i++)\{		&					&			&	     \\	
+~~~~~~reserved\_future\_use		& 24					& bslbf		&	     \\		
+~~~~~~descriptor\_core\_length		& 8					& uimsbf		&	     \\		
+~~~~~~for(i=0; i \textless N; i++) \{	&					&			&	     \\		
+~~~~~~~~~core\_module\_name	& 8					& uimsbf		&	     \\		
+~~~~~~\}						&					&			&	     \\
+~~~\}						&					&			&	     \\
 \}						&					&			&	     \\
 \hline
 \end{tabular} }
 \end{center}
 \end{table}
 
-The $descriptor\_length$ field identifies the size of the content located inside the loop. The next field, that is, $descriptor\_core\_length$, identifies the size of the $fpga\_core\_module\_name$ information, which is composed by 32 characters, where each one is coded with 8 bits. Such a field is used to inform the hardware module name ({\it e.g.}, decoders, multiplexer, and cypher) available for reconfiguration. The next descriptor is named $fpga\_core\_device\_info()$  and is shown in TABLE~\ref{table:table-five}. This descriptor is identified by a $descriptor\_tag$ set to `0x03'. Its $descriptor\_length$ field presents the size of the $fpga\_info$ string field, where each character is also coded with 8 bits. This field informs the name of the FPGA manufacturer, followed by the FPGA family and, lastly, the part number of the FPGA device, for which the core was synthesized. Such values are arranged into the $fpga\_info$ character string field, separated by spaces (`0x32'): ``fpga-manufacturer-name fpga-family-name fpga-part-number''. This information is used, by the receiver, to identify the FPGA device information in the broadcast content.
+The $descriptor\_length$ field identifies the size of the content located inside the loop. The next field, that is, $descriptor\_core\_length$, identifies the size of the $core\_module\_name$ information, where each characters is coded with 8 bits. Such a field is used to inform the hardware module name ({\it e.g.}, decoders, multiplexer, and cypher) available for reconfiguration. The next descriptor is named $fpga\_core\_device\_info()$  and is shown in TABLE~\ref{table:table-five}. This descriptor is identified by a $descriptor\_tag$ set to `0x03'. Its $descriptor\_length$ field presents the size of the $fpga\_info$ string field, where each character is also coded with 8 bits. This field informs the name of the FPGA manufacturer, followed by the FPGA family and, lastly, the part number of the FPGA device, for which the core was synthesized. Such values are arranged into the $fpga\_info$ character string field, separated by spaces (`0x32'): ``fpga-manufacturer-name fpga-family-name fpga-part-number''. This information is used, by the receiver, to identify the FPGA device information in the broadcast content.
 
 \begin{table}[ht]
 \renewcommand{\arraystretch}{1}
@@ -823,11 +823,11 @@ The $descriptor\_length$ field identifies the size of the content located inside
 Data Structure 				& Bit Rate (No. of bits) 	& Mnemonic 	& Value\\
 \hline\hline
 fpga\_core\_device\_info() \{	&					&			&	    \\		
-descriptor\_tag				& 8					& uimsbf		& 0x03 \\
-descriptor\_length			& 8					& uimsbf		&	    \\	
-for(i=0; i \textless N; i++)\{		&					&			&	    \\
-fpga\_info					& 8					& uimsbf		&	    \\	
-      \}						&					&			&	    \\
+~~~descriptor\_tag				& 8					& uimsbf		& 0x03 \\
+~~~descriptor\_length			& 8					& uimsbf		&	    \\	
+~~~for(i=0; i \textless N; i++)\{		&					&			&	    \\
+~~~~~~fpga\_info					& 8					& uimsbf		&	    \\	
+      ~~~\}						&					&			&	    \\
 \}						&					&			&	    \\
 \hline
 \end{tabular} }
@@ -849,13 +849,13 @@ The receiver system uses the presented information to check the characteristics 
 Data Structure 				& Bit Rate (No. of bits) 	& Mnemonic 	& Value\\
 \hline\hline
 fpga\_section\_identifier() \{	&					&			&	    \\		
-descriptor\_tag				& 8					& uimsbf		& 0x05 \\
-descriptor\_lenght			& 8					& uimsbf		&	    \\	
-for(i=0; i \textless N; i++) \{	&					&			&	    \\		
-remount\_core\_pck\_pid		& 32					& bslbf		&	    \\	
-          remount\_core\_sec\_tid	& 16					& bslbf		&	    \\	
-remount\_priority			& 8					& uimsbf		&	    \\	
-\}						&					&			&	    \\
+~~~descriptor\_tag				& 8					& uimsbf		& 0x05 \\
+~~~descriptor\_lenght			& 8					& uimsbf		&	    \\	
+~~~for(i=0; i \textless N; i++) \{	&					&			&	    \\		
+~~~~~~remount\_core\_pck\_pid		& 32					& bslbf		&	    \\	
+          ~~~~~~remount\_core\_sec\_tid	& 16					& bslbf		&	    \\	
+~~~~~~remount\_priority			& 8					& uimsbf		&	    \\	
+~~~\}						&					&			&	    \\
 \}						&					&			&	    \\
 \hline
 \end{tabular} }
@@ -868,7 +868,7 @@ remount\_priority			& 8					& uimsbf		&	    \\
 \label{core-data}
 %==============================================================
 
-The DTV-receiver resident system is configured to filter the transmitted content, in order to find some hardware reconfiguration bit-stream (core). The system will look for UIT and parse it, beginning with the $hw\_core\_flag$ field. If it is set to `0x0', the system simply ignores the current UIT; otherwise (`0x1'), there is a signaled hardware bit-stream content and the system then parses the remaining UIT content ({\em e.g.}, $fpga\_core\_size$, $fpga\_core\_version$, and $fpga\_core\_module\_name$), in order to retrieve the corresponding table fields, which describe the characteristics of the broadcast bit-stream (hardware core). Finally, such values are compared with those of the local FPGA devices, as shown in Fig.~\ref{figure:fig6}. The characteristics of the local FPGA devices can be stored in a simple text file, which is made available at the receiver file system, as done here.
+The DTV-receiver resident system is configured to filter the transmitted content, in order to find some hardware reconfiguration bit-stream (core). The system will look for UIT and parse it, beginning with the $hw\_core\_flag$ field. If it is set to `0x0', the system simply ignores the current UIT; otherwise (`0x1'), there is a signaled hardware bit-stream content and the system then parses the remaining UIT content ({\em e.g.}, $fpga\_core\_size$, $fpga\_core\_version$, and $fpga\_core\_module\_name()$), in order to retrieve the corresponding table fields, which describe the characteristics of the broadcast bit-stream (hardware core). Finally, such values are compared with those of the local FPGA devices, as shown in Fig.~\ref{figure:fig6}. The characteristics of the local FPGA devices can be stored in a simple text file, which is made available at the receiver file system, as done here.
 
 %
 \begin{figure}[ht]
@@ -1178,10 +1178,10 @@ F. Bossen, B. Bross, K. Sühring, and D. Flynn, ``HEVC complexity and implementat
 	H. Koumaras, M. Kourtis, and D. Martakus, ``Benchmarking the encoding efficiency of H.265/HEVC and H.264/AVC,'' in \emph{Proc. Future Network \& Mobile Summit}, Berlin, Germany, pp. 1-7, Jul. 2012.
 	
 \bibitem{ref5}
-IEEE standard, ``IEEE standard VHDL language reference manual,'' IEEE Std 1076-2008, Jan. 2009.
+IEEE Standard, ``IEEE standard VHDL language reference manual,'' IEEE Std 1076-2008, Jan. 2009.
 	
 \bibitem{ref6}
-IEEE standard, ``IEEE standard for verilog hardware description language,'' IEEE Std 1364-2005, Apr. 2006.
+IEEE Standard, ``IEEE standard for verilog hardware description language,'' IEEE Std 1364-2005, Apr. 2006.
 
 \bibitem{ref7}
 S. Z. Ahmed, G. Sassatelli, L. Torres, and L. Roug\'e, ``Survey of new trends in industry for programmable hardware: FPGAs, MPPAs, MPSoCs, structured ASICs, eFPGAs and new wave of innovation in FPGAs,'' in \emph{Proc. International Conference on Field Programmable Logic and Applications}, Milano, Italy, pp. 291-297, Sep. 2010.
@@ -1263,10 +1263,10 @@ G. Castagnoly, S. Brauer and M. Herrmann, ``Optimization of cyclic redundancy-ch
 U. Reimers, {\it DVB - The Family of International Standards for Digital Video Broadcasting}, 2nd~ed., Springer Verlag: Berlin, Germany, 2005, pp. 287-288.
 	
 \bibitem{ref24}
-Digital video broadcasting, ``Specification for data broadcasting,'' ETSI EN 301 192 - V1.5.1, Nov. 2009.
+Digital Video Broadcasting, ``Specification for data broadcasting,'' ETSI EN 301 192 - V1.5.1, Nov. 2009.
 
 \bibitem{ref25}
-Digital video broadcasting, ``Implementation guidelines for Data Broadcasting,'' ETSI TR 101 202 - V1.2.1, Jan. 2003.
+Digital Video Broadcasting, ``Implementation guidelines for Data Broadcasting,'' ETSI TR 101 202 - V1.2.1, Jan. 2003.
 
 \bibitem{ref26}
 R. J. Crinon, ``The DSM-CC object carousel for broadcast data services,'' in \emph{Proc. IEEE International Conference on Consumer Electronics}, Rosemont, USA, pp. 246-247, Jun. 1997.
@@ -1278,7 +1278,7 @@ ABNT Standard, ``Digital terrestrial television - receivers,'' ABNT NBR 15604, N
 E. Stavinov, {\it 100 Power Tips For FPGA Designers}, CreateSpace Independent Publishing Platform: Charleston, USA, 2011, pp. 171-200.
 	
 \bibitem{ref29}
-IEEE standard, ``IEEE standard for test access port and boundary-scan architecture,'' IEEE Std. 1149.1, 2013.
+IEEE Standard, ``IEEE standard for test access port and boundary-scan architecture,'' IEEE Std. 1149.1, 2013.
 	
 \bibitem{ref30}
 M. Strubel, ``Implementing JTAG debugging solutions for custom hardware,'' in \emph{Proc. Embedded World 2012}, Nuremberg, Germany, pp. 1-17, Feb. 2012.
